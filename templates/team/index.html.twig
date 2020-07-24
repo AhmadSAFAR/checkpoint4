@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L'équipe{% endblock %}
+
+{% block body %}
+<div class="btns">
+    <h1>Notre équipe </h1>
+      <h3>cliquez pour plus de détails </h3>
+</div>
+  {% if is_granted('ROLE_ADMIN') %}
+ <div class="btns">
+       <a class=" btn btn-success btn-lg" href="{{ path('team_new') }}">Ajouter à l'équipe</a>
+ </div>
+  {% endif %}
+<div class="caro">
+   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  <div class="carousel-item active">
+      <img src="{{ asset('build/wild.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+    {% for team in teams %}
+    <div class="carousel-item ">
+       <a href="{{ path('team_show', {'id': team.id}) }}"> <img id="wild" src="/pictures/{{ team.photo }}" class="d-block w-100" alt="...">  </a>
+    </div>
+         {% else %}
+            <tr>
+                <td colspan="5">Rien à afficher/td>
+            </tr>
+        {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+    
+{% endblock %}
+          

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+  {% if is_granted('ROLE_ADMIN') %}
+<div class="btns">
+    <a  class="btn btn-success btn-lg" href="{{ path('event_new') }}">Ajouter nouveau événement</a>
+     </div>
+  {% endif %}
+  
+<div class="event_list">
+        {% for event in events %}
+        <div class="event_image card">
+           <a href="{{ path('event_show', {'id': event.id}) }}"><img src="/posters/{{ event.poster }}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h1 class="card-title">{{ event.title }}</h1>
+                     </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Date de l'événement</h3>
+                        <h5 class="card-title">({{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }})</h5>
+                        <h5 class="card-title">à {{ event.city }}</h5>
+                  </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <div class="btns">
+                    <a class=" btn btn-success btn-lg" href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
+                    </div>
+                    {% endif %}
+                      <a class="btn btn-success btn-lg" href="{{ path('event_show', {'id': event.id}) }}">Détails de l'événement</a>
+              </div>
+                    
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+      </div>
+
+{% endblock %}

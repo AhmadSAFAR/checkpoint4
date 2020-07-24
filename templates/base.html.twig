@@ -3,10 +3,76 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+     {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
+<nav class="navbar  justify-content-center  navbar-expand-lg navbar-light bg-warning ">
+  <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+   <div class="topnav collapse navbar-collapse  " id="navbarColor03">
+    <ul class="nav  container d-flex justify-content-around bg-warning navbar-nav ">
+    <li class="nav-item active ">
+        <a class="nav-link  text-white" href="/">Accueil</a>
+      </li>
+       <li class="nav-item active">
+        <a class="nav-link  text-white" href="/event">Evénements</a>
+      </li>
+      <li class="nav-item active">
+         <a class="nav-link active  text-white" href="/team">L'équipe</a>
+      </li>
+      <li class="nav-item active">
+
+        <a class="nav-link  text-white" href="/history">Histoire</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active  text-white" href="/contact">Contact</a>
+     </li>
+
+        <li class="nav-item active">
+         {% if app.user %}
+      <a class="btn bg-danger text-white"  href="{{ path('app_logout') }}">Déconnecter</a>
+    {% endif %}
+     </li>
+     
+    </ul>
+    </div>
+</nav>
+
+    {% for label, messages in app.flashes(['success', 'danger']) %}
+ {% for message in messages %}
+    <div class="alert alert-{{ label }}">
+        {{ message }}
+    </div>
+ {% endfor %}
+{% endfor %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <!-- Site footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-6  col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">Un cirque est une troupe d'artistes, traditionnellement itinérante, qui comporte le plus souvent des acrobates, propose des numéros de dressage et de domptage d’animaux et donne des spectacles de clowns et des tours de magie. Plus généralement au xxie siècle, le cirque est un spectacle vivant populaire organisé autour d’une scène circulaire. Le terme cirque vient du latin circus, en référence à une enceinte circulaire.</p>
+          </div>
+
+          <div class="col-6 col-xs-6 col-md-3">
+            <h6>Contact</h6>
+            <ul class="footer-links">
+              <li>On est là et ailleurs</li>
+              <li>06000000</li>
+               <li>Wild@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+    
+</footer>
+        {% block javascripts %}    {{ encore_entry_script_tags('app') }}{% endblock %}
     </body>
+    
 </html>

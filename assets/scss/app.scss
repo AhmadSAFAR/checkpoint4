@@ -1,0 +1,34 @@
+@import "vars.scss";
+@import "~bootstrap/scss/bootstrap";
+@import "home.scss";
+@import "footer.scss";
+@import "event.scss";
+@import "team.scss";
+@import "contact.scss";
+@import "history.scss";
+
+body{
+    background-color: chocolate;
+}
+
+
+h3{
+    color: wheat;
+}
+
+.formDesign{
+    width: 25%;
+    height: 25%;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.log{
+    margin-bottom: 10%;
+}
+
+.edit{
+    width: 50%;
+    margin: 0 auto;
+}

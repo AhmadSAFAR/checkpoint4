@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+<div class="coverImg">
+ <img src="/posters/{{ event.poster }}" alt=".." />
+</div>
+    <div class="eventshow">
+    <h1>{{ event.title }}</h1>
+    <h3>{{ event.description }}</h3>
+    <h5>Le {{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }}</h5>
+     <h4>Animer par:</h4>
+         {% for act  in event.teams  %}
+      <h4>{{ act.name }}</h4>
+       {% endfor %}
+    </div> 
+     <div class="btns">
+      <a  class=" btn btn-warning btn-lg"  href="{{ path('event_index') }}">Retour à la liste</a>  
+      {% if is_granted('ROLE_ADMIN') %}        
+    <a class=" btn btn-success btn-lg"  href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
+
+    {{ include('event/_delete_form.html.twig') }}
+      {% endif %}
+      
+    </div>
+{% endblock %}

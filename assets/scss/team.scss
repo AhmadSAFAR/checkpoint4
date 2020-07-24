@@ -1,0 +1,47 @@
+.caro{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+
+.wilderName {
+    text-align: center;
+    font-size: 30px;
+    color:#2e5d94;
+}
+
+.wilderPhoto {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.wilderPhoto img {
+    width: 500px;
+    height: 500px;
+}
+
+#wild{
+    width: 500px;
+    height: 500px;
+
+}
+.wilderDES{
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    font-size: 30px;
+    color: wheat;
+}
+
+
+@media only screen and (max-width: 550px) and (min-width: 200px){
+    .caro{
+        width: 350px;
+    }
+
+    .wilderPhoto img {
+        width: 350px;
+        height: 300px;
+    }
+}
