@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="cover">
+  <iframe class="video1" id="video"src="https://www.youtube.com/embed/B3DnrdLo6HQ"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="titre">
+  <h1>Spectacles actuel</h1>
+  </div>
+  <div class="event_list">
+        {% for event in events %}
+    <div class="event_image card">
+          <a href="{{ path('event_show', {'id': event.id}) }}"><img src="/posters/{{ event.poster }}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h1 class="card-title">{{ event.title }}</h1>
+                     </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Date de l'événement</h3>
+                        <h5 class="card-title">({{ event.eventDate ? event.eventDate|date('Y-m-d') : '' }})</h5>
+                        <h5 class="card-title">{{ event.city }}</h5>
+                  </div>
+              </div>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+      </div>
+{% endblock %}

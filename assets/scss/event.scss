@@ -1,0 +1,68 @@
+
+.event_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+}
+.event_image{
+    width: 30%;
+    padding: 25px;
+    margin: 3%;
+
+}
+
+.card-title{
+  text-align: center;
+  color:#2e5d94;
+}
+
+.btns {
+    margin-top: 3%;
+    text-align: center;
+}
+
+.btns h1{
+    color: wheat;
+}
+
+.btns a{
+    margin-bottom: 3%;
+}
+.coverImg {
+    text-align: center;
+}
+.coverImg img{
+    width: 50%;
+    height: 400px;
+    margin-top: 3%;
+
+}
+
+.eventshow{
+    color: #2e5d94;
+    text-align: center;
+}
+
+.newEvent{
+    width: 25%;
+    margin: 0 auto;
+}
+
+
+/** for telephone desktop's witdth between 200px and 850px */
+@media only screen and (max-width: 850px) and (min-width: 200px){
+    .event_list {
+        display: block;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .event_image{
+     margin: 0 auto;
+     margin-top: 5%;
+     width: 50%;
+    }
+
+
+}
